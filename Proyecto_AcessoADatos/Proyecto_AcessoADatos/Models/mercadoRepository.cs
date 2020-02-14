@@ -49,10 +49,23 @@ namespace Proyecto_AcessoADatos.Models
             return m;*/
         }
 
-        internal void UpdateMercado(int id, decimal cuota_over, decimal cuota_under, float dinero_over, float dinero_under)
+        /*** Ejercicio 2 ***/
+        internal void Update(int id, decimal Cuota_over, decimal Cuota_under, float Dinero_over, float Dinero_under)
         {
-            throw new NotImplementedException();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                Mercado mercado = context.Mercados
+                    .Where(s => s.id == id)
+                    .FirstOrDefault();
+                mercado.Cuota_over = Cuota_over;
+                mercado.Cuota_under = Cuota_under;
+                mercado.Dinero_over = Dinero_over;
+                mercado.Dinero_under = Dinero_under;
+                context.Update(mercado);
+                context.SaveChanges();
+            }
         }
+        /*** Fin Ejercicio 2 ***/
 
         internal Mercado Retrieve(int id)
         {
