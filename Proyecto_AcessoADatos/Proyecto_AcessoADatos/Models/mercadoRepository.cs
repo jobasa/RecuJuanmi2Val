@@ -49,6 +49,10 @@ namespace Proyecto_AcessoADatos.Models
             return m;*/
         }
 
+        internal void UpdateMercado(int id, decimal cuota_over, decimal cuota_under, float dinero_over, float dinero_under)
+        {
+            throw new NotImplementedException();
+        }
 
         internal Mercado Retrieve(int id)
         {

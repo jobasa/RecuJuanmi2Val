@@ -39,9 +39,13 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
         // PUT: api/mercado/5
-        public void Put(int id, [FromBody]string value)
+        /*** Ejercicio 2 ***/
+        public void Put(int id, [FromBody]decimal Cuota_over, decimal Cuota_under, float Dinero_over, float Dinero_under)
         {
+            var repo = new MercadoRepository();
+            repo.Update(id, Cuota_over, Cuota_under, Dinero_over, Dinero_under);
         }
+        /*** Fin Ejercicio 2 ***/
 
         // DELETE: api/mercado/5
         public void Delete(int id)
